@@ -3,6 +3,7 @@ module Utils
     makeErrorMessage,
     makeEndPhrase,
     helloPerson,
+    makeCongratulationsMessage
   )
 where
 
@@ -20,3 +21,6 @@ makeEndPhrase = printf "Let's try again, %s!"
 
 helloPerson :: String -> String
 helloPerson = printf "Hello, %s!"
+
+makeCongratulationsMessage :: Types.UserName -> Types.Message
+makeCongratulationsMessage = printf "Congratulations, %s!"
