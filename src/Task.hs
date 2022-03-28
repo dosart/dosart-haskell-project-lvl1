@@ -1,10 +1,10 @@
 module Task
-(
-    makeTask,  
+  ( makeTask,
     getQuestion,
     getRightAnswer,
-    Task
-) where
+    Task,
+  )
+where
 
 import Types
 

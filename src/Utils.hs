@@ -1,11 +1,11 @@
 module Utils
-(
-    askQuestion,
+  ( askQuestion,
     makeErrorMessage,
     makeEndMessage,
     makeCongratulationsMessage,
-    helloPerson
-) where
+    helloPerson,
+  )
+where
 
 import Text.Printf
 import Types
@@ -24,5 +24,3 @@ makeEndMessage = printf "Let's try again, %s!"
 
 makeCongratulationsMessage :: Types.UserName -> Types.Message
 makeCongratulationsMessage = printf "Congratulations, %s!"
-
-    
