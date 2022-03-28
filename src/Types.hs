@@ -1,15 +1,17 @@
 module Types
-  ( Question,
+(
+    Question,
     RightAnswer,
     WrongAnswer,
     Message,
-  )
-where
+    GameDescription,
+    UserName
+) where
 
 type Question = String
-
 type RightAnswer = String
-
-type WrongAnswer = String
-
+type WrongAnswer = String 
 type Message = String
+type GameDescription = String
+type UserName = String
+type UserAnswer = String
