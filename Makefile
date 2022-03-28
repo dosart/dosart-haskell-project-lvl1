@@ -9,3 +9,6 @@ format:
 
 refactor:
 	hlint $(path) --refactor --refactor-options="--inplace"
+
+check:
+	hlint $(path)
