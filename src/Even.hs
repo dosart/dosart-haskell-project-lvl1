@@ -22,5 +22,5 @@ number = 7
 makeGame :: Game
 makeGame = EvenGame
 
-genTask :: IO (Task.Task)
+genTask :: IO Task.Task
 genTask = return(Task.makeTask (show number) (convertToRightAnswer number))

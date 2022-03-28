@@ -17,7 +17,7 @@ main = do
     putStrLn Even.getDescroption
     run name countRound
 
-greetings :: IO(Types.UserName)
+greetings :: IO Types.UserName
 greetings = do
     putStrLn "Welcome to the Brain Games!" 
     putStrLn "May I have your name? "
@@ -37,7 +37,7 @@ run name countOfRound = do
         then  putStrLn "Correct! " >> run name (countOfRound - 1)
         else  putStrLn (Utils.makeErrorMessage userAnswer (Task.getRightAnswer task)) >> putStrLn (Utils.makeEndMessage name)
 
-respond :: String -> IO(String)
+respond :: String -> IO String
 respond task = do
     putStrLn task
     putStr "Your answer: " >> getLine
