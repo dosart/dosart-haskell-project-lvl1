@@ -1,10 +1,10 @@
 module Task
-  ( makeTask,
+(
+    makeTask,  
     getQuestion,
     getRightAnswer,
-    createTask,
-  )
-where
+    Task
+) where
 
 import Types
 
@@ -18,15 +18,3 @@ getQuestion = fst
 
 getRightAnswer :: Task -> Types.RightAnswer
 getRightAnswer = snd
-
-convertToRightAnswer :: Int -> Types.RightAnswer
-convertToRightAnswer number = if even number then "yes" else "no"
-
-number :: Int
-number = 7
-
-testTask :: Task
-testTask = makeTask (show number) (convertToRightAnswer number)
-
-createTask :: IO Task
-createTask = return testTask
