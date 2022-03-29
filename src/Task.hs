@@ -6,15 +6,15 @@ module Task
   )
 where
 
-import Types
+import Types (Question, RightAnswer)
 
-type Task = (Types.Question, Types.RightAnswer)
+type Task = (Question, RightAnswer)
 
-makeTask :: Types.Question -> Types.RightAnswer -> Task
+makeTask :: Question -> RightAnswer -> Task
 makeTask question rightAnswer = (question, rightAnswer)
 
-getQuestion :: Task -> Types.Question
+getQuestion :: Task -> Question
 getQuestion = fst
 
-getRightAnswer :: Task -> Types.RightAnswer
+getRightAnswer :: Task -> RightAnswer
 getRightAnswer = snd
