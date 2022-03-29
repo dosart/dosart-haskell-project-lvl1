@@ -5,10 +5,10 @@ where
 
 import Even (genTask, getDescroption)
 import Task (getQuestion, getRightAnswer)
-import Types (UserName)
+import Types (UserName, CountRound)
 import Utils (helloPerson, makeCongratulationsMessage, makeEndMessage, makeErrorMessage, askQuestion)
 
-countRound :: Int
+countRound :: CountRound
 countRound = 3
 
 main :: IO ()
@@ -25,7 +25,7 @@ greetings = do
   putStrLn $ helloPerson name
   return name
 
-run :: UserName -> Int -> IO ()
+run :: UserName -> CountRound -> IO ()
 run name countOfRound = do
   if countOfRound == 0
     then putStrLn (makeCongratulationsMessage name)

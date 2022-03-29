@@ -21,3 +21,5 @@ type GameDescription = String
 type UserName = String
 
 type UserAnswer = String
+
+type CountRound = Int
