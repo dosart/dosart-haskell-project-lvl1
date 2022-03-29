@@ -36,6 +36,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , random
   default-language: Haskell2010
 
 executable BrainGames-exe
@@ -48,6 +49,7 @@ executable BrainGames-exe
   build-depends:
       BrainGames
     , base >=4.7 && <5
+    , random
   default-language: Haskell2010
 
 test-suite BrainGames-test
@@ -61,4 +63,5 @@ test-suite BrainGames-test
   build-depends:
       BrainGames
     , base >=4.7 && <5
+    , random
   default-language: Haskell2010

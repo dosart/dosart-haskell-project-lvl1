@@ -4,22 +4,21 @@ module Even
   )
 where
 
-import Task
-import Types
+import Task (makeTask, Task)
+import Types (GameDescription, RightAnswer)
+
+import System.Random (initStdGen, genWord8)
 
 data Game = EvenGame
 
-getDescroption :: Types.GameDescription
+getDescroption :: GameDescription
 getDescroption = "Answer \"yes\" if the number is even, otherwise answer \"no\"."
 
-convertToRightAnswer :: Int -> Types.RightAnswer
+convertToRightAnswer :: Integer -> RightAnswer
 convertToRightAnswer number = if even number then "yes" else "no"
 
-number :: Int
-number = 7
 
-makeGame :: Game
-makeGame = EvenGame
-
-genTask :: IO Task.Task
-genTask = return (Task.makeTask (show number) (convertToRightAnswer number))
+genTask :: IO Task
+genTask = do
+  number <- toInteger . fst . genWord8 <$> initStdGen
+  return (makeTask (show number) (convertToRightAnswer number) )
