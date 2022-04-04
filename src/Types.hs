@@ -5,6 +5,8 @@ module Types
     Message,
     GameDescription,
     UserName,
+    CountRound,
+    UserInput
   )
 where
 
@@ -23,3 +25,5 @@ type UserName = String
 type UserAnswer = String
 
 type CountRound = Int
+
+type UserInput = String
