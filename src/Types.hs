@@ -6,7 +6,7 @@ module Types
     GameDescription,
     UserName,
     CountRound,
-    UserInput
+    UserInput,
   )
 where
 
