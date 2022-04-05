@@ -4,7 +4,7 @@ module Engine
 where
 
 import Even (genTask, getDescroption)
-import Games (Game, descroption, genGameBy)
+import Games (Game, description, genGameBy)
 import Task (getQuestion, getRightAnswer)
 import Types (CountRound, UserInput, UserName)
 import Utils (askQuestion, helloPerson, makeCongratulationsMessage, makeEndMessage, makeErrorMessage)
@@ -17,7 +17,7 @@ main = do
   user_name <- greetings
   maybe_game <- genGame
   case maybe_game of
-    Just game -> do print (descroption game)
+    Just game -> do print (description game)
     Nothing -> print "Nothing"
 
 greetings :: IO UserName
