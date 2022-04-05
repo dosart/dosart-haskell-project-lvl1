@@ -1,12 +1,15 @@
 module Games
   ( genGameBy,
     description,
+    genTask,
     Game,
   )
 where
 
+import System.Random (genWord8, initStdGen)
 import Data.Char (toLower)
-import Types (UserInput)
+import Types (UserInput, RightAnswer)
+import Task (Task, makeTask)
 
 data Game = Even | Calc | SimpleNumber
 
@@ -26,6 +29,19 @@ games = [Even, Calc, SimpleNumber]
 
 getGame :: UserInput -> Maybe Game
 getGame userInput = lookup userInput $ map (\game -> (show game, game)) games
+
+genTask :: Game -> IO Task
+genTask Even = genEvenTask
+genTask Calc = genEvenTask
+genTask SimpleNumber = genEvenTask
+
+genEvenTask :: IO Task
+genEvenTask = do
+  number <- toInteger . fst . genWord8 <$> initStdGen
+  return (makeTask (show number) (convertToRightAnswer number))
+
+convertToRightAnswer :: Integer -> RightAnswer
+convertToRightAnswer number = if even number then "yes" else "no"
 
 description :: Game -> String
 description Even = "Answer \"yes\" if the number is even, otherwise answer \"no\"."
