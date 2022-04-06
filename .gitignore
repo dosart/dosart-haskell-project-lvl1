@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+.stack-work/
+*~
+>>>>>>> master
 dist
 dist-*
 cabal-dev
@@ -20,4 +25,8 @@ cabal.sandbox.config
 cabal.project.local
 cabal.project.local~
 .HTF/
+<<<<<<< HEAD
 .ghc.environment.*
+=======
+.ghc.environment.*
+>>>>>>> master
