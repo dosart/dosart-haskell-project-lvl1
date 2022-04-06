@@ -14,7 +14,7 @@ import Task (Task, makeTask)
 data Game = Even | Calc | SimpleNumber
 
 instance Show Game where
-  show Even = "even."
+  show Even = "even"
   show Calc = "calc"
   show SimpleNumber = "simpleNumber"
 
