@@ -3,8 +3,7 @@ module Engine
   )
 where
 
-import Even (genTask, getDescroption)
-import Games (Game, description, genGameBy)
+import Games (Game, description, genGameBy, genTask, description)
 import Task (getQuestion, getRightAnswer)
 import Types (CountRound, UserInput, UserName)
 import Utils (askQuestion, helloPerson, makeCongratulationsMessage, makeEndMessage, makeErrorMessage)
@@ -17,8 +16,8 @@ main = do
   user_name <- greetings
   maybe_game <- genGame
   case maybe_game of
-    Just game -> do print (description game)
-    Nothing -> print "Nothing"
+    Just game -> runGame game countRound user_name
+    Nothing -> print "Sorry!. Game dosn't exist."
 
 greetings :: IO UserName
 greetings = do
@@ -34,16 +33,21 @@ genGame = fmap genGameBy gameName
 gameName :: IO String
 gameName = putStrLn "What game do you want to play? " >> getLine
 
-run :: UserName -> CountRound -> IO ()
-run name count_round = do
-  if count_round == 0
+runGame :: Game -> CountRound -> UserName -> IO ()
+runGame game round_counts name = do
+  putStrLn $ description game
+  run game round_counts name
+
+run :: Game -> CountRound -> UserName -> IO ()
+run game round_counts name = do
+  if round_counts== 0
     then putStrLn (makeCongratulationsMessage name)
     else do
-      task <- genTask
+      task <- genTask game
       putStrLn $ askQuestion $ getQuestion task
       userAnswer <- respond $ getQuestion task
       if userAnswer == getRightAnswer task
-        then putStrLn "Correct! " >> run name (count_round - 1)
+        then putStrLn "Correct! " >> run game (round_counts - 1) name
         else putStrLn (makeErrorMessage userAnswer (getRightAnswer task)) >> putStrLn (makeEndMessage name)
 
 respond :: String -> IO String
