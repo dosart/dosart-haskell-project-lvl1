@@ -3,7 +3,7 @@ module Engine
   )
 where
 
-import Games (Game, description, genGameBy, genTask, description)
+import Games (Game, description, genGameBy, genTask)
 import Task (getQuestion, getRightAnswer)
 import Types (CountRound, UserInput, UserName)
 import Utils (askQuestion, helloPerson, makeCongratulationsMessage, makeEndMessage, makeErrorMessage)
@@ -12,7 +12,7 @@ countRound :: CountRound
 countRound = 3
 
 main :: IO ()
-main = do 
+main = do
   user_name <- greetings
   maybe_game <- genGame
   case maybe_game of
@@ -40,7 +40,7 @@ runGame game round_counts name = do
 
 run :: Game -> CountRound -> UserName -> IO ()
 run game round_counts name = do
-  if round_counts== 0
+  if round_counts == 0
     then putStrLn (makeCongratulationsMessage name)
     else do
       task <- genTask game

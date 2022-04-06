@@ -6,10 +6,10 @@ module Games
   )
 where
 
-import System.Random (genWord8, initStdGen)
 import Data.Char (toLower)
-import Types (UserInput, RightAnswer)
+import System.Random (genWord8, initStdGen)
 import Task (Task, makeTask)
+import Types (RightAnswer, UserInput)
 
 data Game = Even | Calc | SimpleNumber
 
