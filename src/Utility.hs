@@ -1,4 +1,4 @@
-module Utils
+module Utility
   ( askQuestion,
     makeErrorMessage,
     makeEndMessage,

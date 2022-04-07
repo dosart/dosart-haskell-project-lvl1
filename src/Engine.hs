@@ -6,7 +6,7 @@ where
 import Games (Game, description, genGameBy, genTask)
 import Task (getQuestion, getRightAnswer)
 import Types (CountRound, UserInput, UserName)
-import Utils (askQuestion, helloPerson, makeCongratulationsMessage, makeEndMessage, makeErrorMessage)
+import Utility (askQuestion, helloPerson, makeCongratulationsMessage, makeEndMessage, makeErrorMessage)
 
 countRound :: CountRound
 countRound = 3
