@@ -8,19 +8,19 @@ module Utils
 where
 
 import Text.Printf
-import Types
+import Types (WrongAnswer, RightAnswer, UserName, Message, Question)
 
-askQuestion :: Types.Question -> String
+askQuestion :: Question -> String
 askQuestion = printf "Question: %s"
 
-helloPerson :: String -> String
+helloPerson :: UserName -> Message
 helloPerson = printf "Hello, %s!"
 
-makeErrorMessage :: Types.WrongAnswer -> Types.RightAnswer -> Message
+makeErrorMessage :: WrongAnswer -> RightAnswer -> Message
 makeErrorMessage wrongAnswer rightAnswer = printf "'%s' is wrong answer ;(. Correct answer was '%s'." wrongAnswer rightAnswer
 
-makeEndMessage :: String -> Types.Message
+makeEndMessage :: String -> Message
 makeEndMessage = printf "Let's try again, %s!"
 
-makeCongratulationsMessage :: Types.UserName -> Types.Message
+makeCongratulationsMessage :: Types.UserName -> Message
 makeCongratulationsMessage = printf "Congratulations, %s!"
