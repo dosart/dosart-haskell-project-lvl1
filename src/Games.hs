@@ -38,7 +38,10 @@ genTask SimpleNumber = genEvenTask
 genEvenTask :: IO Task
 genEvenTask = do
   number <- toInteger . fst . genWord8 <$> initStdGen
-  return (makeTask (show number) (convertToRightAnswer number))
+  return (makeEvenTask number)
+  
+makeEvenTask :: Integer -> Task
+makeEvenTask number =  makeTask (show number) (convertToRightAnswer number)
 
 convertToRightAnswer :: Integer -> RightAnswer
 convertToRightAnswer number = if even number then "yes" else "no"
