@@ -1,6 +1,8 @@
 module Game
-  ( Game,
+  ( Game (..),
   )
 where
 
-data Game = Game {description :: String, id :: String, getTask :: IO Task}
+import Task (Task)
+
+data Game = Game {description :: String, genTask :: IO Task}
