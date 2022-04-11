@@ -8,7 +8,7 @@ module Utility
 where
 
 import Text.Printf
-import Types (WrongAnswer, RightAnswer, UserName, Message, Question)
+import Types (Message, Question, RightAnswer, UserName, WrongAnswer)
 
 askQuestion :: Question -> String
 askQuestion = printf "Question: %s"
