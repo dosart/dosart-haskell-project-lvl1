@@ -25,12 +25,15 @@ source-repository head
 
 library
   exposed-modules:
+      Calc
       Engine
       Even
-      Games
+      Game
+      GameFactory
+      RandomValue
       Task
       Types
-      Utils
+      Utility
   other-modules:
       Paths_BrainGames
   hs-source-dirs:
