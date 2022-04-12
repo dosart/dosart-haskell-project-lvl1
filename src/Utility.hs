@@ -22,5 +22,5 @@ makeErrorMessage wrongAnswer rightAnswer = printf "'%s' is wrong answer ;(. Corr
 makeEndMessage :: String -> Message
 makeEndMessage = printf "Let's try again, %s!"
 
-makeCongratulationsMessage :: Types.UserName -> Message
+makeCongratulationsMessage :: UserName -> Message
 makeCongratulationsMessage = printf "Congratulations, %s!"
