@@ -3,7 +3,7 @@ module Calc
   )
 where
 
-import Game ( Game (..) )
+import Game (Game (..))
 import RandomValue (genRandomNumber, getRandomElem)
 import Task (Task, makeTask)
 import Text.Printf
@@ -12,7 +12,7 @@ genCalcGame :: Game
 genCalcGame = Game {description = describe, genTask = genCalcTask}
 
 describe :: String
-describe = "Answer \"yes\" if the number is even, otherwise answer \"no\"."
+describe = "What is the result of the expression?"
 
 genCalcTask :: IO Task
 genCalcTask = do
@@ -36,5 +36,5 @@ operations = [((+), "+"), ((-), "-"), ((*), "*")]
 makeQuestion :: String -> String -> String -> String
 makeQuestion op1 operation op2 = printf "%s %s %s" op1 operation op2
 
-makeRightAnswer:: a -> (a -> a -> b) -> a -> b
+makeRightAnswer :: a -> (a -> a -> b) -> a -> b
 makeRightAnswer op1 operation op2 = operation op1 op2
