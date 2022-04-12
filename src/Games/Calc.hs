@@ -1,9 +1,9 @@
-module Calc
+module Games.Calc
   ( genCalcGame,
   )
 where
 
-import Game (Game (..))
+import Games.Game (Game (..))
 import RandomValue (genRandomNumber, getRandomElem)
 import Task (Task, makeTask)
 import Text.Printf
@@ -34,7 +34,7 @@ maxValue = 20
 operations = [((+), "+"), ((-), "-"), ((*), "*")]
 
 makeQuestion :: String -> String -> String -> String
-makeQuestion op1 operation op2 = printf "%s %s %s" op1 operation op2
+makeQuestion = printf "%s %s %s"
 
 makeRightAnswer :: a -> (a -> a -> b) -> a -> b
-makeRightAnswer op1 operation op2 = operation op1 op2
+makeRightAnswer op1 operation = operation op1

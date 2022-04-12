@@ -17,7 +17,7 @@ helloPerson :: UserName -> Message
 helloPerson = printf "Hello, %s!"
 
 makeErrorMessage :: WrongAnswer -> RightAnswer -> Message
-makeErrorMessage wrongAnswer rightAnswer = printf "'%s' is wrong answer ;(. Correct answer was '%s'." wrongAnswer rightAnswer
+makeErrorMessage = printf "'%s' is wrong answer ;(. Correct answer was '%s'."
 
 makeEndMessage :: String -> Message
 makeEndMessage = printf "Let's try again, %s!"

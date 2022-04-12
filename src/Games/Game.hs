@@ -1,4 +1,4 @@
-module Game
+module Games.Game
   ( Game (..),
   )
 where

@@ -3,11 +3,11 @@ module Engine
   )
 where
 
-import Game (Game (..))
-import GameFactory (genGameBy)
+import Games.Game (Game (..))
+import Games.GameFactory (genGameBy)
+import Task (Task, getQuestion, getRightAnswer, makeTask)
 import Types (CountRound, UserName)
-import Task (makeTask, getQuestion, getRightAnswer, Task)
-import Utility (helloPerson, makeCongratulationsMessage, askQuestion, makeErrorMessage, makeEndMessage)
+import Utility (askQuestion, helloPerson, makeCongratulationsMessage, makeEndMessage, makeErrorMessage)
 
 countRound :: CountRound
 countRound = 3

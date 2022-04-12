@@ -1,12 +1,12 @@
-module GameFactory
+module Games.GameFactory
   ( genGameBy,
   )
 where
 
-import Calc (genCalcGame)
 import Data.Char
-import Even (genEvenGame)
-import Game (Game)
+import Games.Calc (genCalcGame)
+import Games.Even (genEvenGame)
+import Games.Game (Game)
 import Types (UserInput)
 
 genGameBy :: UserInput -> Maybe Game

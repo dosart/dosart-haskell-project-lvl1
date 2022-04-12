@@ -25,11 +25,11 @@ source-repository head
 
 library
   exposed-modules:
-      Calc
       Engine
-      Even
-      Game
-      GameFactory
+      Games.Calc
+      Games.Even
+      Games.Game
+      Games.GameFactory
       RandomValue
       Task
       Types

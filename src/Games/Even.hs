@@ -1,9 +1,9 @@
-module Even
+module Games.Even
   ( genEvenGame,
   )
 where
 
-import Game (Game (..))
+import Games.Game (Game (..))
 import RandomValue (genRandomNumber)
 import Task (Task, makeTask)
 import Types (RightAnswer)
@@ -12,7 +12,7 @@ genEvenGame :: Game
 genEvenGame = Game {description = describe, genTask = genEvenTask}
 
 describe :: String
-describe = "Answer \"yes\" if the number is even, otherwise answer \"no\"." 
+describe = "Answer \"yes\" if the number is even, otherwise answer \"no\"."
 
 genEvenTask :: IO Task
 genEvenTask = do
