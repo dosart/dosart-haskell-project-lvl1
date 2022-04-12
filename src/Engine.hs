@@ -3,10 +3,11 @@ module Engine
   )
 where
 
-import Games (Game, description, genGameBy, genTask)
-import Task (getQuestion, getRightAnswer)
-import Types (CountRound, UserInput, UserName)
-import Utility (askQuestion, helloPerson, makeCongratulationsMessage, makeEndMessage, makeErrorMessage)
+import Game (Game (..))
+import GameFactory (genGameBy)
+import Types (CountRound, UserName)
+import Task (makeTask, getQuestion, getRightAnswer, Task)
+import Utility (helloPerson, makeCongratulationsMessage, askQuestion, makeErrorMessage, makeEndMessage)
 
 countRound :: CountRound
 countRound = 3
@@ -17,7 +18,7 @@ main = do
   maybe_game <- genGame
   case maybe_game of
     Just game -> runGame game countRound user_name
-    Nothing -> print "Sorry!. Game dosn't exist."
+    Nothing -> print "Sorry! Game dosn't exist."
 
 greetings :: IO UserName
 greetings = do
@@ -45,12 +46,12 @@ run game round_counts name = do
     else do
       task <- genTask game
       putStrLn $ askQuestion $ getQuestion task
-      userAnswer <- respond $ getQuestion task
-      if userAnswer == getRightAnswer task
+      user_answer <- respond $ getQuestion task
+      if user_answer == getRightAnswer task
         then putStrLn "Correct! " >> run game (round_counts - 1) name
-        else putStrLn (makeErrorMessage userAnswer (getRightAnswer task)) >> putStrLn (makeEndMessage name)
+        else putStrLn (makeErrorMessage user_answer (getRightAnswer task)) >> putStrLn (makeEndMessage name)
 
 respond :: String -> IO String
 respond task = do
-  putStrLn task
-  putStrLn "Your answer: " >> getLine
+  putStrLn "Your answer: "
+  getLine
