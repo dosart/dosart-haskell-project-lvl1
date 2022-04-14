@@ -2,23 +2,21 @@ module Task
   ( makeTask,
     getQuestion,
     getRightAnswer,
-    genOneNumberTask,
+    produceTask,
     Task,
   )
 where
 
-import Types (Question, RightAnswer)
+data Task a b = Task { question :: a, rightAnswer :: b}
 
-type Task = (Question, RightAnswer)
+makeTask :: a -> b -> Task a b
+makeTask q r = Task {question = q, rightAnswer = r}
 
-makeTask :: Question -> RightAnswer -> Task
-makeTask question rightAnswer = (question, rightAnswer)
+getQuestion :: Task a b -> a
+getQuestion = question
 
-getQuestion :: Task -> Question
-getQuestion = fst
+getRightAnswer :: Task a b -> b
+getRightAnswer = rightAnswer
 
-getRightAnswer :: Task -> RightAnswer
-getRightAnswer = snd
-
-genOneNumberTask :: (Integer -> RightAnswer) -> Integer -> Task
-genOneNumberTask f number = makeTask (show number) (f number)
+produceTask :: (a -> b) -> (a -> b) -> a -> Task b b
+produceTask makeQuestion makeRightAnswer value = makeTask (makeQuestion value) (makeRightAnswer value)
