@@ -2,6 +2,7 @@ module Task
   ( makeTask,
     getQuestion,
     getRightAnswer,
+    genOneNumberTask,
     Task,
   )
 where
@@ -18,3 +19,6 @@ getQuestion = fst
 
 getRightAnswer :: Task -> RightAnswer
 getRightAnswer = snd
+
+genOneNumberTask :: (Integer -> RightAnswer) -> Integer -> Task
+genOneNumberTask f number = makeTask (show number) (f number)
