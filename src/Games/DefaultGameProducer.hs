@@ -3,9 +3,9 @@ module Games.DefaultGameProducer
   )
 where
 
+import RandomValue (genRandomNumber)
 import Task (Task, produceTask)
 import Types (Question, RightAnswer)
-import RandomValue (genRandomNumber)
 
 genDefaultTask :: (Integer -> Bool) -> IO (Task Question RightAnswer)
 genDefaultTask pred = do

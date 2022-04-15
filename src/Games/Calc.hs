@@ -7,6 +7,7 @@ import Games.Game (Game (..))
 import RandomValue (genRandomNumber, getRandomElem)
 import Task (Task, makeTask)
 import Text.Printf
+import Types (Question, RightAnswer)
 
 genCalcGame :: Game
 genCalcGame = Game {description = describe, genTask = genCalcTask}
@@ -14,7 +15,7 @@ genCalcGame = Game {description = describe, genTask = genCalcTask}
 describe :: String
 describe = "What is the result of the expression?"
 
-genCalcTask :: IO Task
+genCalcTask :: IO (Task Question RightAnswer)
 genCalcTask = do
   operand1 <- genRandomNumber minValue maxValue
   operand2 <- genRandomNumber minValue maxValue
