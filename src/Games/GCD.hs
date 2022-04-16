@@ -20,7 +20,7 @@ genGCDTask = do
   operand1 <- genRandomNumber minValue maxValue
   operand2 <- genRandomNumber minValue maxValue
 
-  let question = makeQuestion (show operand1)  (show operand2)
+  let question = makeQuestion (show operand1) (show operand2)
   let righ_answer = show $ gcd operand1 operand2
 
   return (makeTask question righ_answer)
