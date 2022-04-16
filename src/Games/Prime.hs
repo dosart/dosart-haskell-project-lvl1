@@ -31,3 +31,4 @@ makePrimeTask number = makeTask (show number) (convertToRightAnswer number)
 
 convertToRightAnswer :: Integer -> RightAnswer
 convertToRightAnswer number = if isPrime number then "yes" else "no"
+
