@@ -1,10 +1,11 @@
 module Games.Even
   ( genEvenGame,
+    makeEvenTask,
   )
 where
 
-import RandomValue (genRandomNumber)
 import Games.Game (Game (..))
+import RandomValue (genRandomNumber)
 import Task (Task, makeTask)
 import Types (Question, RightAnswer)
 
