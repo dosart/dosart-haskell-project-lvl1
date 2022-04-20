@@ -1,5 +1,6 @@
 module Games.Calc
   ( genCalcGame,
+    makeCalkTask,
   )
 where
 
@@ -21,10 +22,13 @@ genCalcTask = do
   operand2 <- genRandomNumber minValue maxValue
   operation <- getRandomElem operations
 
-  let question = makeQuestion (show operand1) (snd operation) (show operand2)
-  let right_answer = makeRightAnswer operand1 (fst operation) operand2
+  return (makeCalkTask operand1 operand1 operation)
 
-  return (makeTask question (show right_answer))
+makeCalkTask :: Integer -> Integer -> ((Integer -> Integer -> Integer), String) -> Task Question RightAnswer
+makeCalkTask num1 num2 operation = makeTask question (show right_answer)
+  where
+    question = makeQuestion (show num1) (snd operation) (show num2)
+    right_answer = makeRightAnswer num1 (fst operation) num2
 
 minValue :: Integer
 minValue = 0
