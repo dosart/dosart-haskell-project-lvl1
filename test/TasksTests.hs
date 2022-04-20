@@ -1,4 +1,4 @@
-module EvenTest
+module TasksTests
   ( prop_makeEvenTask,
     prop_makeGCDTask,
     prop_makeCalcTask1,
