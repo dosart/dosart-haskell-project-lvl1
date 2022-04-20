@@ -4,16 +4,17 @@ module Games.Prime
 where
 
 import Data.Numbers.Primes (isPrime)
-import RandomValue (genRandomNumber)
 import Games.Game (Game (..))
+import RandomValue (genRandomNumber)
 import Task (Task, makeTask)
-import Types (Question, RightAnswer)
+import Text.Printf
+import Types (Question, RightAnswer, noAnswer, yesAnswer)
 
 genPrimeGame :: Game
 genPrimeGame = Game {description = describe, genTask = genPrimeTask}
 
 describe :: String
-describe = "Answer \"yes\" if the number is prime, otherwise answer \"no\"."
+describe = printf "Answer \"%s\" if the number is prime, otherwise answer \"%s\"." yesAnswer noAnswer
 
 genPrimeTask :: IO (Task Question RightAnswer)
 genPrimeTask = do
@@ -30,5 +31,4 @@ makePrimeTask :: Integer -> Task Question RightAnswer
 makePrimeTask number = makeTask (show number) (convertToRightAnswer number)
 
 convertToRightAnswer :: Integer -> RightAnswer
-convertToRightAnswer number = if isPrime number then "yes" else "no"
-
+convertToRightAnswer number = if isPrime number then yesAnswer else noAnswer

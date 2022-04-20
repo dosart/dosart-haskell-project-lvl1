@@ -7,6 +7,8 @@ module Types
     UserName,
     CountRound,
     UserInput,
+    yesAnswer,
+    noAnswer,
   )
 where
 
@@ -27,3 +29,7 @@ type UserAnswer = String
 type CountRound = Int
 
 type UserInput = String
+
+yesAnswer, noAnswer :: String
+yesAnswer = "yes"
+noAnswer = "no"

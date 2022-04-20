@@ -10,14 +10,14 @@ where
 import Games.Calc (makeCalkTask)
 import Games.Even (makeEvenTask)
 import Games.GCD (makeGCDTask)
-import Task (getQuestion, getRightAnswer)
+import Task (getQuestion, getRightAnswer, noAnswer, yesAnswer)
 import Test.QuickCheck
 import Text.Printf
 
 prop_makeEvenTask number =
   if even number
-    then righ_answer == "yes" && question == show number
-    else righ_answer == "no" && question == show number
+    then righ_answer == yesAnswer && question == show number
+    else righ_answer == noAnswer && question == show number
   where
     task = makeEvenTask number
     question = getQuestion task

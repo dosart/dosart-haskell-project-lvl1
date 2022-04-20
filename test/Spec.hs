@@ -1,9 +1,9 @@
 import TasksTests
-  ( prop_makeEvenTask,
-    prop_makeGCDTask,
-    prop_makeCalcTask1,
+  ( prop_makeCalcTask1,
     prop_makeCalcTask2,
     prop_makeCalcTask3,
+    prop_makeEvenTask,
+    prop_makeGCDTask,
   )
 import Test.QuickCheck
 
