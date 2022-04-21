@@ -1,6 +1,7 @@
 module Games.GCD
   ( genGCDGame,
     makeGCDTask,
+    describe,
   )
 where
 

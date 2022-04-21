@@ -10,7 +10,8 @@ where
 import Games.Calc (makeCalkTask)
 import Games.Even (makeEvenTask)
 import Games.GCD (makeGCDTask)
-import Task (getQuestion, getRightAnswer, noAnswer, yesAnswer)
+import Task (getQuestion, getRightAnswer)
+import Types (noAnswer, yesAnswer)
 import Test.QuickCheck
 import Text.Printf
 

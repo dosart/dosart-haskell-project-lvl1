@@ -1,6 +1,7 @@
 module Games.Calc
   ( genCalcGame,
     makeCalkTask,
+    describe,
   )
 where
 

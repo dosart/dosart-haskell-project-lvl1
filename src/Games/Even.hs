@@ -1,6 +1,7 @@
 module Games.Even
   ( genEvenGame,
     makeEvenTask,
+    describe,
   )
 where
 

@@ -1,5 +1,6 @@
 module Games.Prime
   ( genPrimeGame,
+    describe,
   )
 where
 
