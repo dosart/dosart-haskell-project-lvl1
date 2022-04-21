@@ -2,7 +2,13 @@
 
 This is a simple project for learning Haskell programming language
 
-- **Technology stack:** Haskell, stack, make
+- **Technology stack:** 
+  - Haskell;
+  - Stack (tool for organizing a Haskell application);
+  - Ormolu (formatter for Haskell source code);
+  - Hlint (linter for source code);
+  - QuickCheck (library for testing properties using randomly generated values);
+  - make (build automation tool);
 - **Status:** v.1.0
 
 The package contains for simple mathematics quiz games:
