@@ -1,6 +1,9 @@
 build:
 	stack build
 
+install_dependencies:
+	stack build --system-ghc --test --bench --no-run-tests --no-run-benchmarks --only-dependencies
+
 run:
 	stack exec BrainGames-exe
 
