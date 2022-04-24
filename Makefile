@@ -2,6 +2,8 @@ build:
 	stack build
 
 install_dependencies:
+	stack install ormolu
+	stack install hlint	
 	stack build --system-ghc --test --bench --no-run-tests --no-run-benchmarks --only-dependencies
 
 run:
