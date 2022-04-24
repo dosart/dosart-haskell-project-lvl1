@@ -13,6 +13,7 @@ This is a simple project for learning Haskell programming language
   - Hlint (linter for source code);
   - QuickCheck (library for testing properties using randomly generated values);
   - make (build automation tool);
+  - Github Actions (CI/CD platform)
 - **Status:** v.1.0
 
 The package contains for simple mathematics quiz games:
