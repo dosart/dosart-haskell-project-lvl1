@@ -16,12 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-haskell@v1
-      with:
-        ghc-version: '8.10.3'
-        cabal-version: '3.2'
-
-    - name: Install dependencies
-      run: curl -sSL https://get.haskellstack.org/ | sh
+    - uses: mstksg/setup-stack@v1
         
     - name: Build
       run: make build
