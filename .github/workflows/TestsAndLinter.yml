@@ -1,0 +1,29 @@
+name: 'Tests and formater'
+
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-haskell@v1
+      with:
+        ghc-version: '8.10.3'
+        cabal-version: '3.2'
+
+    - name: Install dependencies
+      run: curl -sSL https://get.haskellstack.org/ | sh
+        
+    - name: Build
+      run: make build
+    - name: Run tests and formater
+      run: make lint
