@@ -1,3 +1,7 @@
+![example workflow](https://github.com/dosart/haskell-project-lvl1/actions/workflows/TestsAndLinter.yml/badge.svg)
+
+
+
 # Brain Games
 
 This is a simple project for learning Haskell programming language
