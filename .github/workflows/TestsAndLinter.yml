@@ -2,23 +2,38 @@ name: 'Tests and formater'
 
 on: push
 
-permissions:
-  contents: read
-
 jobs:
-  build:
-
-    runs-on: ${{ matrix.os }}
+  stack:
+    name: stack / ghc ${{ matrix.ghc }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        stack: ["2.7.3"]
+        ghc: ["8.10.7"]
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-haskell@v1
-    - uses: mstksg/setup-stack@v1
-        
+    - uses: actions/checkout@v2
+
+    - uses: haskell/actions/setup@v1.2
+      name: Setup Haskell Stack
+      with:
+        ghc-version: ${{ matrix.ghc }}
+        stack-version: ${{ matrix.stack }}
+
+    - uses: actions/cache@v2
+      name: Cache ~/.stack
+      with:
+        path: ~/.stack
+        key: ${{ runner.os }}-${{ matrix.ghc }}-stack
+
+    - name: Install dependencies
+      run: make install_dependencies
+
     - name: Build
       run: make build
-    - name: Run tests and formater
-      run: make lint
+    
+    - name: Formater
+      run: make format
+
+    - name: Test
+      run: make test
